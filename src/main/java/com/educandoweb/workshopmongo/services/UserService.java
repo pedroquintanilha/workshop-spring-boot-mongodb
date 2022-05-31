@@ -18,8 +18,7 @@ public class UserService {
 	private UserRepository repo;
 	
 	public List<User> findAll() {
-		List<User> list = repo.findAll();
-		return list;
+		return repo.findAll();
 	}
 	
 	public User findById(String id) {
@@ -29,6 +28,11 @@ public class UserService {
 	
 	public User insert(User obj) {
 		return repo.insert(obj);
+	}
+	
+	public void delete(String id) {
+		findById(id);
+		repo.deleteById(id);
 	}
 	
 	public User fromDTO(UserDTO objDto) {
